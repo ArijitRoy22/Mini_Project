@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KrishiSmarak</string>
+    <string name="app_name">HomeView</string>
     <string name="TermsConditions">By continuing you agree to the Terms and Conditions</string>
     <string name="Moto">Aane waale kal ki kheti aaj</string>
     <string name="Title">KrishiSmarak</string>
@@ -14,4 +14,8 @@
     <string name="sing_up">Sing Up</string>
     <string name="logout">LOGOUT</string>
     <string name="username">UserName</string>
+    <string name="something">Something</string>
+    <string name="sign_in_with_email">Sign in With Email</string>
+    <string name="google">Google</string>
+    <string name="todo">TODO</string>
 </resources>

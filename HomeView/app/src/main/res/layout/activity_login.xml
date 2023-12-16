@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/ui_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ui_image"
+        android:contentDescription="@string/something" />
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:text="@string/Title"
+        android:textColor="@color/white"
+        android:layout_marginStart="40dp"
+        android:textSize="42sp"
+        android:textStyle="bold">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:layout_marginStart="40dp"
+        android:text="@string/Moto"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        android:textStyle="bold">
+
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="430dp"
+        android:layout_marginEnd="21dp"
+        android:hint="@string/email"
+        android:textColorHint="@color/grey"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:endIconMode="none"
+        app:endIconTint="@color/white"
+        app:placeholderText="Eg: abc@gmail.com"
+        app:placeholderTextColor="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text|textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="#FFD54F"
+            tools:ignore="TouchTargetSizeCheck">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="21dp"
+        android:hint="@string/password"
+        android:textColorHint="@color/grey"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:endIconMode="password_toggle"
+        app:endIconTint="#FFFFFF">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text|textPassword"
+            android:minHeight="48dp"
+            android:textColor="@color/white">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_google"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="81dp"
+        android:background="@drawable/button_corner"
+        android:gravity="center"
+        android:text="@string/login"
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="520dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="89dp"
+        android:textColor="@color/white"
+        android:text="@string/don_t_have_an_account">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="11dp"
+        android:minHeight="48dp"
+        android:onClick="onClick1"
+        android:text="@string/sing_up"
+        android:textColor="@color/blue">
+
+    </TextView>
+
+</RelativeLayout>
