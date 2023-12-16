@@ -7,5 +7,9 @@
     <color name="Light_white">#25FFFFFF</color>
     <color name="blue">#0B3FFE</color>
     <color name="default_color" tools:override="true">#FFFFFFFF</color>
+    <color name="grey2">#333333</color>
+    <color name="light_white2">#FFF9F9</color>
+    <color name="light_green">#36B78B</color>
+
 
 </resources>

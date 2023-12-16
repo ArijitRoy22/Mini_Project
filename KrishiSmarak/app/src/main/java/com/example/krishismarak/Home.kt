@@ -16,6 +16,8 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //--------Checking user is present or not----------//
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
         if(user == null){
@@ -26,6 +28,8 @@ class Home : AppCompatActivity() {
         else{
             binding.userDetails.text = user.email
         }
+
+
 
     }
 
