@@ -50,9 +50,9 @@ class MainActivity : AppCompatActivity() {
             })
         }
 
-        binding.btnRead.setOnClickListener {
+//        binding.btnRead.setOnClickListener {
             readData()
-        }
+//        }
         databaseListener()
 
     }
@@ -67,6 +67,9 @@ class MainActivity : AppCompatActivity() {
                 binding.nitrogenValue.text = nitrogen.toString()
                 binding.potassiumValue.text = potassium.toString()
                 binding.phosphorusValue.text = phosphorus.toString()
+
+
+
             }
 
             override fun onCancelled(error: DatabaseError) {

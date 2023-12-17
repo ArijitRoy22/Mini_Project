@@ -51,8 +51,6 @@
         android:textColorHint="@color/grey"
         app:boxBackgroundColor="@color/white"
         app:boxBackgroundMode="outline"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/white"
         app:placeholderText="ex: James"
         app:placeholderTextColor="@color/white"
         app:startIconTint="#FFFFFF">
@@ -80,7 +78,6 @@
         android:textColorHint="@color/grey"
         app:boxBackgroundColor="@color/white"
         app:boxBackgroundMode="outline"
-        app:endIconMode="clear_text"
         app:endIconTint="@color/white"
         app:placeholderText="ex: abc@gmail.com"
         app:placeholderTextColor="@color/white"
@@ -111,7 +108,6 @@
         app:boxBackgroundMode="outline"
         app:endIconMode="password_toggle"
         app:endIconTint="#FFFFFF"
-
         app:startIconTint="#FFFFFF">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -143,36 +139,5 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="520dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginStart="131dp"
-        android:textColor="@color/white"
-        android:text="@string/already_a_user">
-
-    </TextView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="232dp"
-        android:layout_marginTop="520dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="11dp"
-        android:minHeight="48dp"
-        android:onClick="onClick1"
-        android:text="@string/sign_in"
-        android:textColor="@color/blue">
-
-    </TextView>
 
 </RelativeLayout>

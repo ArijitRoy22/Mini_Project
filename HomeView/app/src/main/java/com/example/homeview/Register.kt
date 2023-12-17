@@ -66,29 +66,30 @@ class Register : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, passWord)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    val uid = user?.uid
-                    // Sign in success, update UI with the signed-in user's information
-//                            Log.d(TAG, "createUserWithEmail:success")
-//                            val user = auth.currentUser
-                    if (uid != null) {
-                        val userData = User(firstName)
-                        database.child(uid).setValue(userData)
-                            .addOnCompleteListener { userCreationTask ->
-                                if (userCreationTask.isSuccessful) {
-                                    Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT)
-                                        .show()
-                                    intent = Intent(this, Login::class.java)
-                                    startActivity(intent)
-                                    finish()
-                                } else {
-                                    Toast.makeText(
-                                        this,
-                                        "Failed to save user data",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                    auth.currentUser?.sendEmailVerification()?.addOnSuccessListener {
+                        val user = auth.currentUser
+                        val uid = user?.uid
+                        if (uid != null) {
+                            val userData = User(firstName)
+                            database.child(uid).setValue(userData)
+                                .addOnCompleteListener { userCreationTask ->
+                                    if (userCreationTask.isSuccessful) {
+                                        Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT)
+                                            .show()
+                                        intent = Intent(this, Login::class.java)
+                                        startActivity(intent)
+                                        finish()
+                                    } else {
+                                        Toast.makeText(
+                                            this,
+                                            "Failed to save user data",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
                                 }
-                            }
+                        }
+                    }?.addOnFailureListener {
+                        Toast.makeText(this,it.toString(),Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     // If sign in fails, display a message to the user.

@@ -10,4 +10,6 @@
     <color name="grey2">#333333</color>
     <color name="light_white2">#FFF9F9</color>
     <color name="light_green">#36B78B</color>
+    <color name="red">#F40303</color>
+    <color name="blue2">#4399DD</color>
 </resources>

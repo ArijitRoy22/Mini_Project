@@ -19,10 +19,13 @@ class Login : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
+        val verification = auth.currentUser?.isEmailVerified
         if (currentUser != null) {
-            intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            if(verification == true) {
+                intent = Intent(applicationContext, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }else{
 //            startActivity(Intent(applicationContext,Register::class.java))
 //            finish()
@@ -35,6 +38,11 @@ class Login : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = FirebaseAuth.getInstance()
+
+        binding.forgotPassword.setOnClickListener {
+            startActivity(Intent(this,ResetPassword::class.java))
+            finish()
+        }
 
     }
 
@@ -61,16 +69,21 @@ class Login : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, passWord)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithEmail:success")
-                    Toast.makeText(
-                        applicationContext,
-                        "Login Successul",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    intent = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    val verification = auth.currentUser?.isEmailVerified
+                    if(verification == true){
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "signInWithEmail:success")
+                        Toast.makeText(
+                            applicationContext,
+                            "Login Successul",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        intent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        Toast.makeText(this,"Please verify your email", Toast.LENGTH_SHORT).show()
+                    }
 
                 } else {
                     // If sign in fails, display a message to the user.
