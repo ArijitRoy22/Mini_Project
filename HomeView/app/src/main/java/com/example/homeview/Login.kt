@@ -20,9 +20,13 @@ class Login : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            intent = Intent(applicationContext, Register::class.java)
+            intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
             finish()
+        }else{
+//            startActivity(Intent(applicationContext,Register::class.java))
+//            finish()
+            Toast.makeText(this,"You can login now!",Toast.LENGTH_SHORT).show()
         }
     }
 

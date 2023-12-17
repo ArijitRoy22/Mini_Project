@@ -17,18 +17,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var database: DatabaseReference
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnRead.setOnClickListener {
-            readData()
-        }
-        databaseListener()
-
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
+        database = FirebaseDatabase.getInstance().getReference("Users")
+        val uid = auth.currentUser?.uid
         if(user == null){
             intent = Intent(applicationContext,Login::class.java)
             startActivity(intent)
@@ -37,6 +35,26 @@ class MainActivity : AppCompatActivity() {
         else{
 
         }
+
+        uid?.let{
+            database.child(it).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val user = snapshot.getValue(User::class.java)
+                    val userName = user?.firstName ?: "Default Username"
+                    binding.tvUserName.text = userName
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Handle error
+                }
+            })
+        }
+
+        binding.btnRead.setOnClickListener {
+            readData()
+        }
+        databaseListener()
+
     }
 
     private fun databaseListener() {
@@ -103,5 +121,4 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
 }
