@@ -61,12 +61,32 @@ class MainActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().getReference()
         val postListener = object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                val nitrogen = snapshot.child("Sensor/Nitrogen").value
-                val potassium = snapshot.child("Sensor/Potassium").value
-                val phosphorus = snapshot.child("Sensor/Phosphorus").value
-                binding.nitrogenValue.text = nitrogen.toString()
-                binding.potassiumValue.text = potassium.toString()
-                binding.phosphorusValue.text = phosphorus.toString()
+                val nitrogen = snapshot.child("Sensor/Nitrogen").value as? Long
+                val potassium = snapshot.child("Sensor/Potassium").value as? Long
+                val phosphorus = snapshot.child("Sensor/Phosphorus").value as? Long
+                if (nitrogen != null && potassium != null && phosphorus != null) {
+                    binding.nitrogenValue.text = nitrogen.toString()
+                    binding.potassiumValue.text = potassium.toString()
+                    binding.phosphorusValue.text = phosphorus.toString()
+
+                    if (nitrogen < 50) {
+                        binding.tvSuggestionBox.text = "Nitrogen level is low, consider taking action."
+                    } else {
+                        binding.tvSuggestionBox.text = "" // Clear the suggestion text if not below 50
+                    }
+
+                    if (potassium < 80){
+                        binding.tvSuggestionBox1.text = "Potassium level is low, consider taking action."
+                    }else{
+                        binding.tvSuggestionBox1.text = ""
+                    }
+
+                    if(phosphorus < 30){
+                        binding.tvSuggestionBox2.text = "Potassium level is low, consider taking action."
+                    }else{
+                        binding.tvSuggestionBox2.text = ""
+                    }
+                }
 
 
 
