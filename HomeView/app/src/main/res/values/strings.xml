@@ -21,12 +21,12 @@
     <string name="reset">Reset</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="suggestion_box">Suggestion Box</string>
+    <string name="suggestion_box">Suggestion Box :</string>
     <string name="overview">Overview</string>
     <string name="categories">Categories</string>
-    <string name="npk_status">NPK Status</string>
-    <string name="nitrogen">Nitrogen :</string>
-    <string name="phosphorus">Phosphorus :</string>
-    <string name="potassium">Potassium :</string>
+    <string name="npk_status">NPK Status :</string>
+    <string name="nitrogen">Nitrogen(N) -></string>
+    <string name="phosphorus">Phosphorus(P) -></string>
+    <string name="potassium">Potassium(K) -></string>
     <string name="namaskar">Namaskar</string>
 </resources>

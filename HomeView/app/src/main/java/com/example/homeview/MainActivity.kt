@@ -1,10 +1,10 @@
 package com.example.homeview
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.homeview.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -70,19 +70,19 @@ class MainActivity : AppCompatActivity() {
                     binding.phosphorusValue.text = phosphorus.toString()
 
                     if (nitrogen < 50) {
-                        binding.tvSuggestionBox.text = "Nitrogen level is low, consider taking action."
+                        binding.tvSuggestionBox.text = "Nitrogen level is low, consider taking action!"
                     } else {
                         binding.tvSuggestionBox.text = "" // Clear the suggestion text if not below 50
                     }
 
                     if (potassium < 80){
-                        binding.tvSuggestionBox1.text = "Potassium level is low, consider taking action."
+                        binding.tvSuggestionBox1.text = "Potassium level is low, consider taking action!"
                     }else{
                         binding.tvSuggestionBox1.text = ""
                     }
 
                     if(phosphorus < 30){
-                        binding.tvSuggestionBox2.text = "Potassium level is low, consider taking action."
+                        binding.tvSuggestionBox2.text = "Phosphorus level is low, consider taking action!"
                     }else{
                         binding.tvSuggestionBox2.text = ""
                     }

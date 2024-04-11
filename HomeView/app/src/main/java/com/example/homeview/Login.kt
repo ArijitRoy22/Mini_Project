@@ -15,6 +15,8 @@ class Login : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
 
+    private var exitMessageDisplayed = false
+
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -27,8 +29,8 @@ class Login : AppCompatActivity() {
                 finish()
             }
         }else{
-//            startActivity(Intent(applicationContext,Register::class.java))
-//            finish()
+             //startActivity(Intent(applicationContext,Register::class.java))
+            //finish()
             Toast.makeText(this,"You can login now!",Toast.LENGTH_SHORT).show()
         }
     }
@@ -96,6 +98,19 @@ class Login : AppCompatActivity() {
 
                 }
             }
+    }
+
+    override fun onBackPressed() {
+        if (Login::class.java == this::class.java) {
+            if (!exitMessageDisplayed) {
+                Toast.makeText(this, "Press back again to exit.", Toast.LENGTH_SHORT).show()
+                exitMessageDisplayed = true
+            } else {
+                finishAffinity()
+            }
+        } else {
+            super.onBackPressed()
+        }
     }
 
 }
